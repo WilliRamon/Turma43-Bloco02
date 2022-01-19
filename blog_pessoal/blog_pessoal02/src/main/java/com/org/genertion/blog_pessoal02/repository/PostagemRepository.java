@@ -8,5 +8,6 @@ import com.org.genertion.blog_pessoal02.model.Postagem;
 @Repository
 public interface PostagemRepository extends JpaRepository<Postagem, Long>{
 
-	//Postagem findById(long id);
+	//Postagem findByIdPostagem(long id);
+	Postagem findByTitulo(String titulo);
 }

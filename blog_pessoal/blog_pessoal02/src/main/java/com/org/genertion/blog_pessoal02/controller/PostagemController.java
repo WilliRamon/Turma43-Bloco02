@@ -29,9 +29,13 @@ public class PostagemController {
 		return ResponseEntity.ok(repository.findAll());
 	}
 	
-	/*@RequestMapping(value="/postagem/{id}", method = RequestMethod.GET)
-	 *public @ResponseBody Object filtrar(@PathVariable Long id) {
-	*	return repository.findById(id);
-	*}
+	/*@RequestMapping(value="/postagem/{id}", method=RequestMethod.GET)
+	 public @ResponseBody Postagem filtrar(@PathVariable Long id) {
+		return repository.findByIdPostagem(id);
+	}
 	*/
+	@RequestMapping(value="/postagem/{titulo}", method=RequestMethod.GET)
+	 public @ResponseBody Postagem filtrar(@PathVariable String titulo) {
+		return repository.findByTitulo(titulo);
+	}
 }
