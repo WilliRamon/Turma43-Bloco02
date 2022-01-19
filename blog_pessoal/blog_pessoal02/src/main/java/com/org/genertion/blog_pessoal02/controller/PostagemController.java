@@ -34,8 +34,5 @@ public class PostagemController {
 		return repository.findByIdPostagem(id);
 	}
 	*/
-	@RequestMapping(value="/postagem/{titulo}", method=RequestMethod.GET)
-	 public @ResponseBody Postagem filtrar(@PathVariable String titulo) {
-		return repository.findByTitulo(titulo);
-	}
+
 }
