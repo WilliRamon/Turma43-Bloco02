@@ -1,4 +1,4 @@
- package com.org.genertion.blog_pessoal02.seguranca;
+package com.org.generation.projetogames.security;
 
 import java.util.Collection;
 import java.util.List;
@@ -6,10 +6,11 @@ import java.util.List;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.org.genertion.blog_pessoal02.model.Usuario;
+import com.org.generation.projetogames.model.Usuario;
 
-public class UserDetailsImpl implements UserDetails { //Fala os detalhes do usuário e as implementações
-	
+
+public class UserDetailsImpl implements UserDetails{
+
 	private static final long serialVersionUID = 1L;
 	
 	private String userName;
@@ -21,10 +22,10 @@ public class UserDetailsImpl implements UserDetails { //Fala os detalhes do usu�
 		this.password = usuario.getSenha();
 	}
 	
-	public UserDetailsImpl() {	}
-
+	public UserDetailsImpl( ) { }
+	
 	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() { //Qual a estrutura das implementações
+	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
 		return authorities;
 	}

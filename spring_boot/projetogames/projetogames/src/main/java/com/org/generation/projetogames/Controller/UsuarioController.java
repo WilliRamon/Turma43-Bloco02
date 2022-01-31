@@ -1,4 +1,4 @@
-package com.org.genertion.blog_pessoal02.controller;
+package com.org.generation.projetogames.Controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,10 +16,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.org.genertion.blog_pessoal02.model.UserLogin;
-import com.org.genertion.blog_pessoal02.model.Usuario;
-import com.org.genertion.blog_pessoal02.repository.UsuarioRepository;
-import com.org.genertion.blog_pessoal02.service.UsuarioService;
+import com.org.generation.projetogames.model.Usuario;
+import com.org.generation.projetogames.model.UsuarioLogin;
+import com.org.generation.projetogames.repository.UsuarioRepository;
+import com.org.generation.projetogames.service.UsuarioService;
+
 
 @RestController
 @RequestMapping("/usuario")
@@ -39,7 +40,7 @@ public class UsuarioController {
 	}
 	
 	@PostMapping("/logar")
-	public ResponseEntity<UserLogin> autentication(@RequestBody Optional<UserLogin> user){
+	public ResponseEntity<UsuarioLogin> autentication(@RequestBody Optional<UsuarioLogin> user){
 		return usuarioService.autenticarUsuario(user)
 				.map(resposta -> ResponseEntity.ok(resposta))
 				.orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
@@ -58,5 +59,4 @@ public class UsuarioController {
 				.map(resposta -> ResponseEntity.status(HttpStatus.OK).body(resposta))
 				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	}
-	
 }

@@ -1,4 +1,4 @@
-package com.org.genertion.blog_pessoal02.seguranca;
+package com.org.generation.projetogames.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -12,42 +12,17 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-/**
- * Classe BasicSecurityConfig
- * 
- * Esta classe é responsável por habilitar a segurança básica da aplicação e o login
- * na aplicação.
- * 
- * Para habilitar a segurança HTTP no Spring, precisamos extender (herdar) 
- * a Classe WebSecurityConfigurerAdapter para fornecer uma configuração padrão 
- * no método configure (HttpSecurity http)
- * 
- * A configuração padrão garante que qualquer requisição enviada para a API 
- * seja autenticada com login baseado em formulário ou autenticação via Browser.
- * 
- * Para personalizar a autenticação utilizaremos a sobrecarga dos métodos da
- * Classe WebSecurityConfigurerAdapter
- * 
- */
-
-/**
- *  A annotation @EnableWebSecurity: habilita a configuração de segurança padrão 
- *  do Spring Security na nossa api.
- */
-
-@EnableWebSecurity 
+@EnableWebSecurity
 public class BasicSecurityConfig extends WebSecurityConfigurerAdapter{
 
 	@Autowired
-	private UserDetailsService userDetailsService; //Estou dizendo que os dados que seram usado para login estão no banco de dados
+	private UserDetailsService userDetailsService;
 	
-	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception{// <- pop-ap de usuario e senha
 		auth.userDetailsService(userDetailsService); //Essas informações viram do banco de dados
 		
 		//Estou dizendo para o auth que a estrutura de objeto que ele vai esperar é e-mail, usuario ...
 		auth.inMemoryAuthentication()
-		
 			.withUser("root")
 			.password(passwordEncoder().encode("root"))
 			.authorities("ROLE_USER");
@@ -58,11 +33,11 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter{
 		return new BCryptPasswordEncoder();
 	}
 	
-	@Override
 	protected void configure(HttpSecurity http) throws Exception{ //Denifir as requisições padroes da security. O que o usuario pode fazer ou não pode
 		http.authorizeHttpRequests()
 		.antMatchers("/usuario/logar").permitAll()
 		.antMatchers("/usuario/cadastrar").permitAll() //Liberar o findAll para a próxima atividade
+		.antMatchers("produto/all").permitAll()
 		.antMatchers(HttpMethod.OPTIONS).permitAll()
 		.anyRequest().authenticated()
 		.and().httpBasic()
