@@ -87,6 +87,12 @@
 			<version>1.5.13</version>
 		</dependency>
 
+		<!--Dependência do PostgreSQL  -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+		</dependency>
+
 	</dependencies>
 
 
