@@ -15,7 +15,7 @@
 	<name>blog_pessoal02</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>15</java.version>
+		<java.version>11</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -52,12 +52,6 @@
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 
@@ -87,7 +81,7 @@
 			<version>1.5.13</version>
 		</dependency>
 
-		<!--Dependência do PostgreSQL  -->
+		<!--Dependência do PostgreSQL -->
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
