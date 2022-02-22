@@ -37,8 +37,9 @@ public class Usuario {
 	@Size(min = 8, max = 100, message = "O atributo USUARIO exige no minimo 8 caracteres e no máximo 100")
 	private String senha;
 	
-	@Size(max = 255, message = "O atributo FOTO permite no máximo 100 caracteres")
 	private String foto;
+	
+	private String tipo;
 	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
@@ -91,6 +92,14 @@ public class Usuario {
 
 	public void setFoto(String foto) {
 		this.foto = foto;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
 	public List<Postagem> getPostagem() {
