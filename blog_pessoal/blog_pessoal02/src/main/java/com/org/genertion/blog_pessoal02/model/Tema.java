@@ -24,7 +24,7 @@ public class Tema {
 	
 	@NotNull(message = "O atributo descição não pode ser vazio")
 	@Size(min = 10, max = 1000, message = "O atributo texto é obrigatório")
-	private String descicao;
+	private String descricao;
 	
 	@OneToMany(mappedBy = "tema", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("tema")
@@ -38,12 +38,12 @@ public class Tema {
 		this.id = id;
 	}
 
-	public String getDescicao() {
-		return descicao;
+	public String getDescricao() {
+		return descricao;
 	}
 
-	public void setDescicao(String descicao) {
-		this.descicao = descicao;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
 	public List<Postagem> getPostagem() {
