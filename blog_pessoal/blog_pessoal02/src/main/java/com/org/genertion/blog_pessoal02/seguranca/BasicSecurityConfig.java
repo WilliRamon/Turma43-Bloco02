@@ -61,6 +61,7 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{ //Denifir as requisições padroes da security. O que o usuario pode fazer ou não pode
 		http.authorizeHttpRequests()
+		.antMatchers("/**").permitAll()
 		.antMatchers("/usuario/logar").permitAll()
 		.antMatchers("/usuario/cadastrar").permitAll() //Liberar o findAll para a próxima atividade
 		.antMatchers(HttpMethod.OPTIONS).permitAll()
